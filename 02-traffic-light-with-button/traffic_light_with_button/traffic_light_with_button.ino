@@ -16,13 +16,12 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly
-  startMillis = millis();
   int buttonState = digitalRead(BUTTON_PIN);
   //button pressed
   if (buttonState == HIGH){
-    if (startMillis - currentMillis >= time1){
+    if (millis() - currentMillis >= time1){
       digitalWrite(GREEN_LED, LOW);
-      currentMillis = startMillis;
+      currentMillis = millis();
       buttonState = LOW;
     }
     digitalWrite(YELLOW_LED, HIGH);
