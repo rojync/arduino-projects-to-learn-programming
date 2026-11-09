@@ -21,7 +21,6 @@ void setup() {
 }
 
 void loop() {
-  
     rounddone = false;
     random_time = random(2000,5000);
     current_time = millis();
@@ -29,7 +28,7 @@ void loop() {
       buttonState = digitalRead(button);
       if (buttonState == 1 && greenison == false){
         Serial.println("Too early");
-        delay(2000);
+        break;
       }
       digitalWrite(red_light, HIGH);
       if(millis() - current_time >= random_time){
@@ -41,7 +40,7 @@ void loop() {
     }
 
     buttonState = digitalRead(button);
-    if(buttonState == 1){
+    if(buttonState == 1 && greenison == true){
       button_pressed = millis();
       digitalWrite(green_light, LOW);
       Serial.print("Before calculation - current_time: ");
