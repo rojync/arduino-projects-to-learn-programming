@@ -56,6 +56,12 @@ void loop() {
     digitalWrite(blue_light,LOW);
     digitalWrite(red_light,HIGH);
   }
+  else if((distance >= 400) && (distance <=2)){
+    digitalWrite(green_light, LOW);
+    digitalWrite(blue_light,LOW);
+    digitalWrite(red_light,LOW);
+    Serial.println("Not in sensors range");
+  }
 
   Serial.println(String("Distance: ") + distance + "cm");
 
